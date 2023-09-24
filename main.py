@@ -7,8 +7,8 @@ punctuation = '!#$%&*+-=?@^_'
 
 chars = ''
 
-pass_count = input('Введите количество паролей для генерации.')
-pass_len = input('Введите необходимую длину паролей.')
+pass_count = int(input('Введите количество паролей для генерации.'))
+pass_len = int(input('Введите необходимую длину паролей.'))
 pass_is_digit = input('Должны ли быть цифры в пароле?')
 pass_is_upper = input('Должны ли быть прописные буквы в пароле?')
 pass_is_lower = input('Должны ли быть строчные буквы в пароле?')
@@ -26,3 +26,12 @@ if pass_is_symb.lower() == "да":
 if pass_is_neodsymb.lower() == "да":
     for i in 'il1Lo0O':
         chars.replace(i, '')
+
+def generate_password(length, chars):
+    total_pass = ''
+    for i in range(length):
+        total_pass += random.choice(chars)
+    return total_pass
+
+for j in range(pass_count):
+    print(generate_password(pass_len, chars))
